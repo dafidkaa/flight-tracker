@@ -5,6 +5,9 @@ import resend
 from jinja2 import Template
 from typing import Dict, List, Any, Optional
 
+# Ensure logs directory exists
+os.makedirs('logs', exist_ok=True)
+
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,

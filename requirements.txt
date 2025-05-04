@@ -12,6 +12,9 @@ lxml==4.9.3
 email-validator==2.0.0
 resend==0.7.2
 
+# Scheduling
+apscheduler==3.10.4
+
 # Utilities
 python-dateutil==2.8.2
 pytz==2023.3
