@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praćenje letova - Zračna luka Zagreb</title>
+    <meta name="description" content="Pratite status dolaznih letova na Zračnoj luci Franjo Tuđman Zagreb i primajte obavijesti o promjenama">
+    <meta name="keywords" content="letovi, zračna luka, zagreb, praćenje letova, status leta, dolasci, obavijesti">
+    <meta name="author" content="Flight Tracker">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flight-tracker.example.com/">
+    <meta property="og:title" content="Praćenje letova - Zračna luka Zagreb">
+    <meta property="og:description" content="Pratite status dolaznih letova na Zračnoj luci Franjo Tuđman Zagreb i primajte obavijesti o promjenama">
+    <meta property="og:image" content="{{ url_for('static', filename='favicon/og-image.jpg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://flight-tracker.example.com/">
+    <meta property="twitter:title" content="Praćenje letova - Zračna luka Zagreb">
+    <meta property="twitter:description" content="Pratite status dolaznih letova na Zračnoj luci Franjo Tuđman Zagreb i primajte obavijesti o promjenama">
+    <meta property="twitter:image" content="{{ url_for('static', filename='favicon/og-image.jpg') }}">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon/favicon.svg') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
+    <meta name="theme-color" content="#0056b3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+    <!-- Scraping disabled banner (hidden by default) -->
+    <div id="scraping-disabled-banner" class="scraping-disabled-banner" style="display: none;">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Prikupljanje podataka je isključeno. Podaci o letovima se ne osvježavaju.</span>
+                </div>
+                <button id="enable-scraping-btn" class="btn btn-success">
+                    <i class="fas fa-play"></i> Pokreni prikupljanje
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="{{ url_for('static', filename='favicon/logo.svg') }}" alt="Flight Tracker Logo" class="logo">
+                </div>
+                <div class="header-text">
+                    <h1>Praćenje letova - Zračna luka Franjo Tuđman Zagreb</h1>
+                    <p>Pratite status dolaznih letova i primajte obavijesti o promjenama</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notifications container -->
+    <div class="container">
+        <div id="notifications-container"></div>
+    </div>
+
+    <main class="container">
+        <section class="flight-tabs">
+            <div class="card">
+                <div class="tabs">
+                    <button id="tab-tracked" class="tab-btn active">Praćeni letovi</button>
+                    <button id="tab-all" class="tab-btn">Svi letovi</button>
+                </div>
+
+                <div class="refresh-info">
+                    <span>Posljednje osvježavanje: <span id="last-update">-</span></span>
+                    <button id="refresh-btn" class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i> Osvježi podatke
+                    </button>
+                </div>
+
+                <!-- Tab content for tracked flights (default active) -->
+                <div id="tab-content-tracked" class="tab-content active">
+                    <h2>Praćeni letovi</h2>
+                    <p>Letovi koje trenutno pratite (maksimalno 20):</p>
+
+                    <div class="tracked-flights-container">
+                        <table id="tracked-flights-table" class="flight-table">
+                            <thead>
+                                <tr>
+                                    <th>Aviokompanija</th>
+                                    <th>Broj leta</th>
+                                    <th>Polazište</th>
+                                    <th>Planirano</th>
+                                    <th>Očekivano</th>
+                                    <th class="hide-sm">Izlaz</th>
+                                    <th class="hide-sm">Prtljaga</th>
+                                    <th>Status</th>
+                                    <th>Akcije</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tracked-flights-data">
+                                <!-- Tracked flights will be inserted here by JavaScript -->
+                                <tr>
+                                    <td colspan="9" class="text-center">
+                                        <div class="empty-state">
+                                            <div class="empty-state-icon">
+                                                <i class="fas fa-plane"></i>
+                                            </div>
+                                            <p>Trenutno ne pratite nijedan let.</p>
+                                            <p>Dodajte let za praćenje putem obrasca ispod ili iz tablice svih letova.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="add-flight-form">
+                        <h3>Dodaj novi let za praćenje</h3>
+                        <form id="add-flight-form">
+                            <div class="form-group">
+                                <label for="flight-number">Broj leta:</label>
+                                <input type="text" id="flight-number" name="flight-number" placeholder="npr. OU 491" required>
+                                <small>Unesite broj leta u formatu kao što je prikazan u tablici letova (npr. OU 491)</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Dodaj let
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tab content for all flights -->
+                <div id="tab-content-all" class="tab-content">
+                    <h2>Svi letovi</h2>
+                    <div class="flight-table-container">
+                        <table id="flight-table" class="flight-table">
+                            <thead>
+                                <tr>
+                                    <th>Aviokompanija</th>
+                                    <th>Broj leta</th>
+                                    <th>Polazište</th>
+                                    <th>Planirano</th>
+                                    <th>Očekivano</th>
+                                    <th class="hide-sm">Izlaz</th>
+                                    <th class="hide-sm">Prtljaga</th>
+                                    <th>Status</th>
+                                    <th>Akcije</th>
+                                </tr>
+                            </thead>
+                            <tbody id="flight-data">
+                                <!-- Flight data will be inserted here by JavaScript -->
+                                <tr>
+                                    <td colspan="9" class="text-center">
+                                        <div class="spinner"></div>
+                                        <p>Učitavanje podataka o letovima...</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="email-notifications">
+            <div class="card">
+                <h2>E-mail obavijesti</h2>
+                <p>Upravljajte e-mail adresama za primanje obavijesti o promjenama statusa letova.</p>
+
+                <div class="email-list-container">
+                    <h3>Primatelji obavijesti</h3>
+                    <ul id="email-recipients">
+                        <!-- Email recipients will be inserted here by JavaScript -->
+                        <li class="text-center">
+                            <div class="spinner"></div>
+                            <p>Učitavanje primatelja...</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="add-email-form">
+                    <h3>Dodaj novu e-mail adresu</h3>
+                    <form id="add-email-form">
+                        <div class="form-group">
+                            <label for="email">E-mail adresa:</label>
+                            <input type="email" id="email" name="email" placeholder="ime@domena.hr" required>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-envelope"></i> Dodaj e-mail
+                            </button>
+                            <button type="button" id="test-email-btn" class="btn btn-info">
+                                <i class="fas fa-paper-plane"></i> Testiraj slanje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="settings">
+            <div class="card">
+                <h2>Postavke obavijesti</h2>
+                <p>Odaberite za koje događaje želite primati obavijesti:</p>
+                <form id="notification-settings-form">
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="notify-status-change" name="notify-status-change" checked>
+                        <label for="notify-status-change">Obavijesti o promjeni statusa leta</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="notify-delay" name="notify-delay" checked>
+                        <label for="notify-delay">Obavijesti o kašnjenju leta</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="notify-gate-change" name="notify-gate-change" checked>
+                        <label for="notify-gate-change">Obavijesti o promjeni izlaza</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="notify-arrival" name="notify-arrival" checked>
+                        <label for="notify-arrival">Obavijesti o slijetanju</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Spremi postavke
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="settings">
+            <div class="card">
+                <h2>Postavke osvježavanja podataka</h2>
+                <p>Postavite interval provjere novih podataka o letovima:</p>
+                <form id="check-interval-form">
+                    <div class="form-group">
+                        <label for="check-interval">Interval provjere (minute):</label>
+                        <input type="number" id="check-interval" name="check-interval" min="1" max="60" value="5" required>
+                        <small>Postavite interval između 1 i 60 minuta. Zadana vrijednost je 5 minuta.</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Spremi interval
+                    </button>
+                </form>
+                <div class="mt-3">
+                    <p>Trenutni interval provjere: <span id="current-check-interval">5</span> minuta</p>
+                    <p>Sljedeće osvježavanje: <span id="next-refresh-time">-</span></p>
+                </div>
+
+                <hr class="divider">
+
+                <h3>Kontrola prikupljanja podataka</h3>
+                <p>Uključite ili isključite automatsko prikupljanje podataka o letovima:</p>
+
+                <div class="scraping-control">
+                    <p class="scraping-status">
+                        Status prikupljanja podataka: <span id="scraping-status-text" class="status-active">Aktivno</span>
+                    </p>
+                    <button id="toggle-scraping-btn" class="btn btn-danger">
+                        <i class="fas fa-power-off"></i> Zaustavi prikupljanje
+                    </button>
+                    <p class="small-text mt-2">
+                        <i class="fas fa-info-circle"></i> Isključivanjem prikupljanja podataka štedite resurse kada ne koristite aplikaciju.
+                        Kada je prikupljanje isključeno, podaci o letovima se neće osvježavati.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="{{ url_for('static', filename='favicon/logo.svg') }}" alt="Flight Tracker Logo" class="footer-logo-img">
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Sustav za praćenje letova Zračne luke Zagreb</p>
+                    <p>Podaci o letovima preuzeti sa službene stranice <a href="https://www.zagreb-airport.hr/putnici/informacije-o-letovima/dolasci/34" target="_blank">Zračne luke Franjo Tuđman Zagreb</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Templates for dynamic content -->
+    <template id="notification-template">
+        <div class="notification">
+            <div class="notification-content">
+                <strong class="notification-title"></strong>
+                <span class="notification-message"></span>
+            </div>
+            <button class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </template>
+
+    <!-- Template for email list item -->
+    <template id="email-item-template">
+        <li>
+            <span class="email-address"></span>
+            <div class="button-group">
+                <button class="btn btn-info btn-sm test-email-btn">
+                    <i class="fas fa-paper-plane"></i> Test
+                </button>
+                <button class="btn btn-danger btn-sm remove-email-btn">
+                    <i class="fas fa-trash-alt"></i> Ukloni
+                </button>
+            </div>
+        </li>
+    </template>
+
+    <!-- Template for confirmation dialog -->
+    <template id="confirmation-dialog-template">
+        <div class="confirmation-dialog">
+            <div class="confirmation-dialog-content">
+                <div class="confirmation-dialog-header">
+                    <h3 class="confirmation-dialog-title"></h3>
+                    <button class="confirmation-dialog-close" aria-label="Close dialog">&times;</button>
+                </div>
+                <div class="confirmation-dialog-body">
+                    <p class="confirmation-dialog-message"></p>
+                    <div class="confirmation-dialog-input-container">
+                        <label for="confirmation-input" class="confirmation-dialog-label"></label>
+                        <input type="text" id="confirmation-input" class="confirmation-dialog-input" placeholder="">
+                    </div>
+                </div>
+                <div class="confirmation-dialog-footer">
+                    <button class="btn btn-secondary confirmation-dialog-cancel">Odustani</button>
+                    <button class="btn btn-danger confirmation-dialog-confirm">Potvrdi</button>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

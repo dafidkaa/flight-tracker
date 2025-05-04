@@ -1,0 +1,29 @@
+{
+  "app_settings": {
+    "language": "hr",
+    "check_interval_minutes": 5,
+    "max_flights": 20,
+    "timezone": "Europe/Zagreb",
+    "scraping_enabled": true
+  },
+  "notification_settings": {
+    "send_email": true,
+    "email_settings": {
+      "smtp_server": "your-smtp-server.com",
+      "smtp_port": 587,
+      "smtp_username": "your-username",
+      "smtp_password": "your-password",
+      "sender_email": "your-email@example.com",
+      "use_tls": true
+    },
+    "notification_events": {
+      "status_change": true,
+      "delay": true,
+      "gate_change": true,
+      "arrival": true
+    }
+  },
+  "tracked_flights": [],
+  "email_recipients": [],
+  "flight_email_mappings": {}
+}

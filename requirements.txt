@@ -1,0 +1,17 @@
+# Web framework
+Flask==2.3.3
+Werkzeug==2.3.7
+Jinja2==3.1.2
+
+# Web scraping
+requests==2.31.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# Email
+email-validator==2.0.0
+resend==0.7.2
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3

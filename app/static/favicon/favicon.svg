@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Flight Tracker Favicon</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle fill="#0056B3" cx="16" cy="16" r="16"></circle>
+        <path d="M24,16 C24,14.8954305 23.1045695,14 22,14 L16,14 L16,8 C16,6.8954305 15.1045695,6 14,6 C12.8954305,6 12,6.8954305 12,8 L12,14 L6,14 C4.8954305,14 4,14.8954305 4,16 C4,17.1045695 4.8954305,18 6,18 L12,18 L12,24 C12,25.1045695 12.8954305,26 14,26 C15.1045695,26 16,25.1045695 16,24 L16,18 L22,18 C23.1045695,18 24,17.1045695 24,16 Z" fill="#FFFFFF" transform="translate(14.000000, 16.000000) rotate(45.000000) translate(-14.000000, -16.000000)"></path>
+    </g>
+</svg>

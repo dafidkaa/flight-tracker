@@ -1,0 +1,747 @@
+{
+  "timestamp": "2025-05-03T18:53:29.310592",
+  "source": "https://www.zagreb-airport.hr/en/passengers/flight-information/arrivals/34",
+  "flights": [
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "23:05",
+      "expected_time": "00:34",
+      "origin": "LONDON",
+      "flight_number": "OU 491Codeshare: OZ 9383,SQ 2403,UA 7280",
+      "baggage": "05",
+      "gate": "A16",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "00:20",
+      "expected_time": "00:27",
+      "origin": "PAPHOS",
+      "flight_number": "FR 5867",
+      "baggage": "03",
+      "gate": "A16",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "00:20",
+      "expected_time": "00:13",
+      "origin": "MALTA",
+      "flight_number": "FR 2186A",
+      "baggage": "01",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "01:00",
+      "expected_time": "01:56",
+      "origin": "HAHN",
+      "flight_number": "FR 8788",
+      "baggage": "02",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "07:00",
+      "expected_time": "07:08",
+      "origin": "SPLIT",
+      "flight_number": "OU 651Codeshare: OS 8412,TK 8045",
+      "baggage": "01",
+      "gate": "A23",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "07:10",
+      "expected_time": "07:14",
+      "origin": "DUBROVNIK",
+      "flight_number": "OU 661Codeshare: OS 8402,TK 8043",
+      "baggage": "02",
+      "gate": "A22",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "07:20",
+      "expected_time": "07:17",
+      "origin": "SARAJEVO",
+      "flight_number": "OU 341",
+      "baggage": "05",
+      "gate": "A16",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "07:40",
+      "expected_time": "07:37",
+      "origin": "PULA VIA ZADAR",
+      "flight_number": "OU 631Codeshare: TK 8031",
+      "baggage": "01",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Turkish Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Turkish_Airlines_logo.svg"
+      },
+      "scheduled_time": "08:40",
+      "expected_time": "08:46",
+      "origin": "ISTANBUL",
+      "flight_number": "TK 1053",
+      "baggage": "05",
+      "gate": "A27",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Air Serbia",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/air-serbia.svg"
+      },
+      "scheduled_time": "09:10",
+      "expected_time": "09:09",
+      "origin": "BELGRADE",
+      "flight_number": "JU 600Codeshare: FB 1869",
+      "baggage": "05",
+      "gate": "A16",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "09:55",
+      "expected_time": "10:10",
+      "origin": "MUNICH",
+      "flight_number": "OU 4437Codeshare: AC 2977,LH 5988,SQ 2411,UA 7272",
+      "baggage": "03",
+      "gate": "A23",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "10:05",
+      "expected_time": "09:54",
+      "origin": "MALTA",
+      "flight_number": "FR 2186",
+      "baggage": "01",
+      "gate": "A22",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "10:20",
+      "expected_time": "10:15",
+      "origin": "BEAUVAIS",
+      "flight_number": "FR 8792",
+      "baggage": "02",
+      "gate": "A24",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "10:40",
+      "expected_time": "10:18",
+      "origin": "VIENNA",
+      "flight_number": "OU 441Codeshare: LO 4271,OS 7051",
+      "baggage": "03",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Austrian Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/austrian.svg"
+      },
+      "scheduled_time": "10:45",
+      "expected_time": "10:30",
+      "origin": "VIENNA",
+      "flight_number": "OS 683",
+      "baggage": "01",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "11:25",
+      "expected_time": "11:08",
+      "origin": "BRUSSELS CHARLER",
+      "flight_number": "FR 2124",
+      "baggage": "02",
+      "gate": "A21",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Air France",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/air-france.svg"
+      },
+      "scheduled_time": "12:10",
+      "expected_time": "12:07",
+      "origin": "PARIS CDG",
+      "flight_number": "AF 1160",
+      "baggage": "03",
+      "gate": "A22",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Lufthansa",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/lufthansa.svg"
+      },
+      "scheduled_time": "12:35",
+      "expected_time": "12:41",
+      "origin": "MUNICH",
+      "flight_number": "LH 1726",
+      "baggage": "01",
+      "gate": "A23",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "13:05",
+      "expected_time": "13:13",
+      "origin": "ZURICH",
+      "flight_number": "OU 461Codeshare: AC 2982,LX 4250,SQ 2413,UA 7278",
+      "baggage": "05",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Turkish Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Turkish_Airlines_logo.svg"
+      },
+      "scheduled_time": "13:05",
+      "expected_time": "13:38",
+      "origin": "ISTANBUL",
+      "flight_number": "TK 1057",
+      "baggage": "05",
+      "gate": "A27",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "13:10",
+      "expected_time": "13:32",
+      "origin": "AMSTERDAM",
+      "flight_number": "OU 451Codeshare: AC 2990,KL 3081,UA 7276",
+      "baggage": "02",
+      "gate": "A25",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "13:10",
+      "expected_time": "13:06",
+      "origin": "COPENHAGEN",
+      "flight_number": "OU 481Codeshare: SQ 2401",
+      "baggage": "01",
+      "gate": "A24",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "13:15",
+      "expected_time": "13:11",
+      "origin": "SPLIT",
+      "flight_number": "OU 653Codeshare: LH 5975",
+      "baggage": "02",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "FlyDubai",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/fly-dubai.svg"
+      },
+      "scheduled_time": "13:30",
+      "expected_time": "13:24",
+      "origin": "DUBAI",
+      "flight_number": "FZ 1793",
+      "baggage": "03",
+      "gate": "A26",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "13:55",
+      "expected_time": "13:57",
+      "origin": "DUBLIN",
+      "flight_number": "FR 2192",
+      "baggage": "01",
+      "gate": "A16",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "13:55",
+      "expected_time": "13:50",
+      "origin": "ROME FIUMICINO",
+      "flight_number": "FR 8837",
+      "baggage": "02",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Qatar Airways",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/qatar.svg"
+      },
+      "scheduled_time": "14:00",
+      "expected_time": "13:44",
+      "origin": "DOHA",
+      "flight_number": "QR 217",
+      "baggage": "05",
+      "gate": "A28",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Lufthansa",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/lufthansa.svg"
+      },
+      "scheduled_time": "14:10",
+      "expected_time": "14:12",
+      "origin": "FRANKFURT",
+      "flight_number": "LH 1406",
+      "baggage": "01",
+      "gate": "A22",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Air France",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/air-france.svg"
+      },
+      "scheduled_time": "14:25",
+      "expected_time": "14:27",
+      "origin": "PARIS CDG",
+      "flight_number": "AF 1560",
+      "baggage": "02",
+      "gate": "A23",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "14:25",
+      "expected_time": "14:17",
+      "origin": "BRAČ",
+      "flight_number": "OU 641",
+      "baggage": "02",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "14:50",
+      "expected_time": "14:59",
+      "origin": "MARSEILLE",
+      "flight_number": "FR 2740",
+      "baggage": "03",
+      "gate": "A10",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "15:20",
+      "expected_time": "15:09",
+      "origin": "BASEL-MULHOUSE",
+      "flight_number": "FR 5863",
+      "baggage": "05",
+      "gate": "A24",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "KLM Royal Dutch Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/klm.svg"
+      },
+      "scheduled_time": "16:50",
+      "expected_time": "16:55",
+      "origin": "AMSTERDAM",
+      "flight_number": "KL 1967",
+      "baggage": "01",
+      "gate": "A25",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "17:15",
+      "expected_time": "17:25",
+      "origin": "FRANKFURT",
+      "flight_number": "OU 411Codeshare: AC 2995,AI 7501,LH 6006,OZ 9371,TP 6873,UA 7268",
+      "baggage": "03",
+      "gate": "A22",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "LOT - Polish Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/lot.svg"
+      },
+      "scheduled_time": "17:20",
+      "expected_time": "17:06",
+      "origin": "WARSAW",
+      "flight_number": "LO 613",
+      "baggage": "02",
+      "gate": "A23",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "17:55",
+      "expected_time": "17:39",
+      "origin": "GIRONA",
+      "flight_number": "FR 2279",
+      "baggage": "01",
+      "gate": "A21",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "Aegean Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/aegean.png"
+      },
+      "scheduled_time": "18:25",
+      "expected_time": "18:39",
+      "origin": "ATHENS",
+      "flight_number": "A3 780",
+      "baggage": "03",
+      "gate": "A24",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "19:00",
+      "expected_time": "18:53",
+      "origin": "MEMMINGEN",
+      "flight_number": "FR 2750",
+      "baggage": "02",
+      "gate": "A23",
+      "status": "Arrived"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "19:05",
+      "expected_time": "19:29",
+      "origin": "THESSALONIKI",
+      "flight_number": "FR 5865",
+      "baggage": "01",
+      "gate": "A25",
+      "status": "Delayed"
+    },
+    {
+      "airline": {
+        "name": "Turkish Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Turkish_Airlines_logo.svg"
+      },
+      "scheduled_time": "19:25",
+      "expected_time": "19:40",
+      "origin": "ISTANBUL",
+      "flight_number": "TK 1055",
+      "baggage": "05",
+      "gate": "A27",
+      "status": "On time"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "19:45",
+      "expected_time": "20:16",
+      "origin": "LDN-STANSTED",
+      "flight_number": "FR 3105",
+      "baggage": "05",
+      "gate": "A16",
+      "status": "Delayed"
+    },
+    {
+      "airline": {
+        "name": "British Airways",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/british-airways.svg"
+      },
+      "scheduled_time": "19:55",
+      "expected_time": "20:47",
+      "origin": "LONDON",
+      "flight_number": "BA 848",
+      "baggage": "05",
+      "gate": "A28",
+      "status": "Delayed"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "20:20",
+      "expected_time": "-",
+      "origin": "PARIS CDG",
+      "flight_number": "OU 471Codeshare: AF 5074,AI 7515,OZ 9381,UA 7266",
+      "baggage": "01",
+      "gate": "A22",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "20:40",
+      "expected_time": "-",
+      "origin": "ROME FIUMICINO VIA DUBROVNIK",
+      "flight_number": "OU 385Codeshare: AZ 7022",
+      "baggage": "03",
+      "gate": "A25",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "20:40",
+      "expected_time": "20:40",
+      "origin": "MANCHESTER",
+      "flight_number": "FR 4800",
+      "baggage": "05",
+      "gate": "A26",
+      "status": "On time"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "20:40",
+      "expected_time": "-",
+      "origin": "DUBROVNIK",
+      "flight_number": "OU 667Codeshare: UA 7258",
+      "baggage": "02",
+      "gate": "A10",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Iberia",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/iberia.svg"
+      },
+      "scheduled_time": "20:50",
+      "expected_time": "20:33",
+      "origin": "MADRID",
+      "flight_number": "IB 941",
+      "baggage": "01",
+      "gate": "A23",
+      "status": "Expected"
+    },
+    {
+      "airline": {
+        "name": "Lufthansa",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/lufthansa.svg"
+      },
+      "scheduled_time": "21:20",
+      "expected_time": "-",
+      "origin": "MUNICH",
+      "flight_number": "LH 1730",
+      "baggage": "02",
+      "gate": "A24",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "21:25",
+      "expected_time": "-",
+      "origin": "ZURICH",
+      "flight_number": "OU 465Codeshare: LX 4252,TP 6857",
+      "baggage": "05",
+      "gate": "A10",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "21:30",
+      "expected_time": "-",
+      "origin": "SPLIT",
+      "flight_number": "OU 6655",
+      "baggage": "01",
+      "gate": "A10",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "22:05",
+      "expected_time": "-",
+      "origin": "FRANKFURT",
+      "flight_number": "OU 415Codeshare: AI 7503,LH 6002,OZ 9373,SQ 2409,TP 6863,UA 7254",
+      "baggage": "02",
+      "gate": "A10",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "22:20",
+      "expected_time": "-",
+      "origin": "MUNICH",
+      "flight_number": "OU 437Codeshare: LH 5998,TP 6865,UA 7274",
+      "baggage": "03",
+      "gate": "A10",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Croatia Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/Croatia_Airlines.svg"
+      },
+      "scheduled_time": "22:35",
+      "expected_time": "-",
+      "origin": "SPLIT",
+      "flight_number": "OU 657",
+      "baggage": "03",
+      "gate": "A23",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "KLM Royal Dutch Airlines",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/klm.svg"
+      },
+      "scheduled_time": "22:45",
+      "expected_time": "-",
+      "origin": "AMSTERDAM",
+      "flight_number": "KL 1969",
+      "baggage": "01",
+      "gate": "A25",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "23:05",
+      "expected_time": "-",
+      "origin": "MALAGA",
+      "flight_number": "FR 600",
+      "baggage": "02",
+      "gate": "A21",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "RYANAIR",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/ryanair.svg"
+      },
+      "scheduled_time": "23:15",
+      "expected_time": "-",
+      "origin": "MILAN BERGAMO",
+      "flight_number": "FR 5999",
+      "baggage": "03",
+      "gate": "A10",
+      "status": "-"
+    },
+    {
+      "airline": {
+        "name": "Lufthansa",
+        "logo": "https://www.zagreb-airport.hr/img/airlines/lufthansa.svg"
+      },
+      "scheduled_time": "23:40",
+      "expected_time": "-",
+      "origin": "FRANKFURT",
+      "flight_number": "LH 1404",
+      "baggage": "01",
+      "gate": "A22",
+      "status": "-"
+    }
+  ]
+}

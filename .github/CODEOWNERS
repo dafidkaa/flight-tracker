@@ -1,0 +1,8 @@
+# These owners will be the default owners for everything in the repo
+* @lemonmedia
+
+# App code
+/app/ @lemonmedia
+
+# Documentation
+*.md @lemonmedia
