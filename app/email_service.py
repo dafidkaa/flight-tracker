@@ -5,15 +5,11 @@ import resend
 from jinja2 import Template
 from typing import Dict, List, Any, Optional
 
-# Ensure logs directory exists
-os.makedirs('logs', exist_ok=True)
-
-# Set up logging
+# Set up logging - only use stream handler for serverless environments
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/email_service.log'),
         logging.StreamHandler()
     ]
 )
@@ -46,8 +42,17 @@ class EmailService:
         else:
             logger.info("No flight-email mappings found in configuration")
 
-        # Fix the template path to use OS-specific path separator
-        self.email_template_path = os.path.join('templates', 'email_notification.html')
+        # Fix the template path to use OS-specific path separator and absolute path
+        # For Vercel, we need to use an absolute path
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        self.email_template_path = os.path.join(current_dir, 'templates', 'email_notification.html')
+
+        # Fallback path if the first one doesn't work
+        if not os.path.exists(self.email_template_path):
+            parent_dir = os.path.dirname(current_dir)
+            self.email_template_path = os.path.join(parent_dir, 'templates', 'email_notification.html')
+
+        logger.info(f"Email template path: {self.email_template_path}")
 
         # Initialize Resend API key
         resend.api_key = "re_Xo8QezxL_M7ZCgLcpztLngNJ5J2XhMHx2"
@@ -63,8 +68,100 @@ class EmailService:
             Email template content or None if loading failed
         """
         try:
-            with open(self.email_template_path, 'r', encoding='utf-8') as f:
-                return f.read()
+            # Try to load from the configured path
+            if os.path.exists(self.email_template_path):
+                with open(self.email_template_path, 'r', encoding='utf-8') as f:
+                    logger.info(f"Successfully loaded email template from {self.email_template_path}")
+                    return f.read()
+
+            # If that fails, try some alternative paths
+            alternative_paths = [
+                os.path.join('templates', 'email_notification.html'),
+                os.path.join('app', 'templates', 'email_notification.html'),
+                os.path.join('app', 'api', 'templates', 'email_notification.html')
+            ]
+
+            for path in alternative_paths:
+                if os.path.exists(path):
+                    with open(path, 'r', encoding='utf-8') as f:
+                        logger.info(f"Successfully loaded email template from alternative path: {path}")
+                        return f.read()
+
+            # If all else fails, return a simple default template
+            logger.warning("Could not load email template from any path, using default template")
+            return """
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>Flight Status Update</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #333; }
+                    .container { max-width: 600px; margin: 0 auto; background: #f9f9f9; padding: 20px; border-radius: 5px; }
+                    .header { text-align: center; padding-bottom: 20px; border-bottom: 1px solid #ddd; }
+                    .flight-info { margin: 20px 0; }
+                    .flight-info table { width: 100%; border-collapse: collapse; }
+                    .flight-info th, .flight-info td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+                    .status-ontime { color: green; font-weight: bold; }
+                    .status-delayed { color: orange; font-weight: bold; }
+                    .status-cancelled { color: red; font-weight: bold; }
+                    .status-landed { color: blue; font-weight: bold; }
+                    .footer { margin-top: 20px; text-align: center; font-size: 12px; color: #777; }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <h1>Flight Status Update</h1>
+                        <p>{{ notification_message }}</p>
+                    </div>
+                    <div class="flight-info">
+                        <table>
+                            <tr>
+                                <th>Flight Number:</th>
+                                <td>{{ flight_number }}</td>
+                            </tr>
+                            <tr>
+                                <th>Airline:</th>
+                                <td>{{ airline }}</td>
+                            </tr>
+                            <tr>
+                                <th>Origin:</th>
+                                <td>{{ origin }}</td>
+                            </tr>
+                            <tr>
+                                <th>Scheduled Time:</th>
+                                <td>{{ scheduled_time }}</td>
+                            </tr>
+                            <tr>
+                                <th>Expected Time:</th>
+                                <td>{{ expected_time }}</td>
+                            </tr>
+                            <tr>
+                                <th>Gate:</th>
+                                <td>{{ gate }}</td>
+                            </tr>
+                            <tr>
+                                <th>Baggage:</th>
+                                <td>{{ baggage }}</td>
+                            </tr>
+                            <tr>
+                                <th>Previous Status:</th>
+                                <td>{{ previous_status }}</td>
+                            </tr>
+                            <tr>
+                                <th>Current Status:</th>
+                                <td class="{{ status_class }}">{{ status }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="footer">
+                        <p>&copy; {{ current_year }} Flight Tracker. All rights reserved.</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            """
         except Exception as e:
             logger.error(f"Error loading email template: {str(e)}")
             return None

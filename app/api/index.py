@@ -5,13 +5,10 @@ import logging
 from flask import Flask, render_template, jsonify, request
 
 # Add the parent directory to the path so we can import our modules
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(parent_dir)
 
-# Import our modules
-from scraper import ZagrebAirportScraper
-from email_service import EmailService
-
-# Set up logging for Vercel
+# Set up logging for Vercel - only use stream handler, no file handlers
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -21,8 +18,17 @@ logging.basicConfig(
 )
 logger = logging.getLogger('flight_tracker')
 
+# Import our modules - do this after logging setup
+try:
+    from scraper import ZagrebAirportScraper
+    from email_service import EmailService
+    logger.info("Successfully imported modules")
+except Exception as e:
+    logger.error(f"Error importing modules: {str(e)}")
+    raise
+
 # Initialize Flask app
-app = Flask(__name__, 
+app = Flask(__name__,
             static_folder='../static',
             template_folder='../templates')
 
@@ -381,7 +387,7 @@ def remove_email():
 def assign_email_to_flight():
     """API endpoint to assign an email to a specific flight"""
     global email_service
-    
+
     try:
         data = request.json
 
@@ -424,7 +430,7 @@ def assign_email_to_flight():
             if email_service:
                 email_service.flight_email_mappings = config['flight_email_mappings']
                 logger.info(f"Updated email service with new flight-email mappings")
-            
+
             return jsonify({
                 'success': True,
                 'message': f'Email {email} assigned to flight {flight_number}',
@@ -440,7 +446,7 @@ def assign_email_to_flight():
 def unassign_email_from_flight():
     """API endpoint to unassign an email from a specific flight"""
     global email_service
-    
+
     try:
         data = request.json
 
@@ -475,7 +481,7 @@ def unassign_email_from_flight():
             if email_service:
                 email_service.flight_email_mappings = config['flight_email_mappings']
                 logger.info(f"Updated email service with new flight-email mappings after unassigning")
-                
+
             return jsonify({
                 'success': True,
                 'message': f'Email {email} unassigned from flight {flight_number}',
@@ -526,11 +532,11 @@ def toggle_scraping():
         # Get the current scraping status
         config = load_config()
         current_status = config['app_settings'].get('scraping_enabled', True)
-        
+
         # If turning off scraping, require confirmation
         if current_status and ('confirmation' not in data or data['confirmation'] != 'STOP'):
             return jsonify({
-                'success': False, 
+                'success': False,
                 'requires_confirmation': True,
                 'current_status': current_status,
                 'message': 'To turn off scraping, please type STOP in the confirmation field'
@@ -539,14 +545,14 @@ def toggle_scraping():
         # Toggle the scraping status
         new_status = not current_status
         config['app_settings']['scraping_enabled'] = new_status
-        
+
         logger.info(f"Toggling scraping status from {current_status} to {new_status}")
 
         # Save configuration
         if save_config(config):
             status_text = "enabled" if new_status else "disabled"
             return jsonify({
-                'success': True, 
+                'success': True,
                 'scraping_enabled': new_status,
                 'message': f'Scraping has been {status_text}'
             })
@@ -560,16 +566,16 @@ def toggle_scraping():
 def test_email():
     """API endpoint to test email sending"""
     global email_service
-    
+
     try:
         # Check if email service is initialized
         if not email_service:
             initialize_email_service()
-            
+
         # Get request data
         data = request.get_json() or {}
         specific_email = data.get('email')
-        
+
         if specific_email:
             # Send test email to specific recipient
             result = email_service.send_test_email(specific_email)
@@ -582,7 +588,7 @@ def test_email():
             config = load_config()
             if not config['email_recipients']:
                 return jsonify({'error': 'No email recipients configured'}), 400
-                
+
             result = email_service.send_test_email()
             if result:
                 return jsonify({'success': True, 'message': 'Test email sent to all recipients'})
