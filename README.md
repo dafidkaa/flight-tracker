@@ -90,37 +90,59 @@ Sustav se sastoji od sljedećih komponenti:
 6. Access the web interface:
    - Open your browser and navigate to `http://localhost:5000`
 
-#### Vercel Deployment
-This application is configured to be deployed on Vercel as a serverless application.
+#### Docker Deployment
+This application is containerized and can be deployed using Docker.
 
 1. **Prerequisites**
-   - A Vercel account
-   - Vercel CLI installed (optional, for local testing)
+   - Docker and Docker Compose installed
 
-2. **Deployment Steps**
-   - Option 1: Using Vercel CLI
-     ```bash
-     npm install -g vercel  # Install Vercel CLI
-     vercel login           # Login to Vercel
-     vercel                 # Deploy the application
-     ```
+2. **Local Docker Deployment**
+   ```bash
+   # Clone the repository
+   git clone https://github.com/dafidkaa/flight-tracker.git
+   cd flight-tracker
 
-   - Option 2: Using Vercel Dashboard
-     - Push your code to a GitHub repository
-     - Log in to your Vercel dashboard
-     - Click "New Project"
-     - Import your GitHub repository
-     - Configure the project settings
-     - Click "Deploy"
+   # Create .env file
+   cp .env.example .env
+   # Edit .env file with your settings
+
+   # Build and run with Docker Compose
+   docker-compose up -d
+   ```
 
 3. **Environment Variables**
-   Set the following environment variables in your Vercel project settings:
+   Set the following environment variables in your `.env` file:
+   - `PORT`: Port to run the application on (default: 8080)
+   - `ENVIRONMENT`: Environment (development, production)
+   - `LOG_TO_FILE`: Whether to log to files (true, false)
    - `RESEND_API_KEY`: Your Resend API key for sending emails
 
-4. **Notes on Vercel Deployment**
-   - The application uses `/tmp` directory for temporary file storage on Vercel
-   - Background tasks are not supported in serverless environments, so automatic data updates will be triggered by API calls
-   - Configuration is stored in the `/tmp` directory and will be reset periodically by Vercel
+#### Digital Ocean Deployment
+This application can be deployed to Digital Ocean using either App Platform or a Droplet.
+
+1. **Prerequisites**
+   - A Digital Ocean account
+   - Git repository with your code
+
+2. **Deployment Options**
+   - **Option 1: Digital Ocean App Platform** (Recommended)
+     - Log in to your Digital Ocean dashboard
+     - Go to App Platform and create a new app
+     - Connect your Git repository
+     - Select Dockerfile as the deployment method
+     - Configure environment variables
+     - Deploy the application
+
+   - **Option 2: Digital Ocean Droplet**
+     - Create a new Droplet
+     - SSH into your Droplet
+     - Install Docker and Docker Compose
+     - Clone your repository
+     - Configure environment variables
+     - Build and run with Docker Compose
+
+3. **Detailed Instructions**
+   For detailed deployment instructions, see the [Digital Ocean Deployment Guide](DEPLOY_DIGITAL_OCEAN.md).
 
 ### Hrvatski
 #### Preduvjeti
@@ -160,37 +182,59 @@ This application is configured to be deployed on Vercel as a serverless applicat
 6. Pristupite web sučelju:
    - Otvorite preglednik i navigirajte do `http://localhost:5000`
 
-#### Vercel Deployment
-Ova aplikacija je konfigurirana za implementaciju na Vercel kao serverless aplikacija.
+#### Docker Deployment
+Ova aplikacija je kontejnerizirana i može se implementirati pomoću Dockera.
 
 1. **Preduvjeti**
-   - Vercel račun
-   - Vercel CLI instaliran (opcionalno, za lokalno testiranje)
+   - Docker i Docker Compose instalirani
 
-2. **Koraci za implementaciju**
-   - Opcija 1: Korištenje Vercel CLI
-     ```bash
-     npm install -g vercel  # Instalirajte Vercel CLI
-     vercel login           # Prijavite se na Vercel
-     vercel                 # Implementirajte aplikaciju
-     ```
+2. **Lokalna Docker implementacija**
+   ```bash
+   # Klonirajte repozitorij
+   git clone https://github.com/dafidkaa/flight-tracker.git
+   cd flight-tracker
 
-   - Opcija 2: Korištenje Vercel nadzorne ploče
-     - Pošaljite svoj kod na GitHub repozitorij
-     - Prijavite se na Vercel nadzornu ploču
-     - Kliknite "New Project"
-     - Uvezite svoj GitHub repozitorij
-     - Konfigurirajte postavke projekta
-     - Kliknite "Deploy"
+   # Stvorite .env datoteku
+   cp .env.example .env
+   # Uredite .env datoteku s vašim postavkama
+
+   # Izgradite i pokrenite s Docker Compose
+   docker-compose up -d
+   ```
 
 3. **Varijable okruženja**
-   Postavite sljedeće varijable okruženja u postavkama vašeg Vercel projekta:
+   Postavite sljedeće varijable okruženja u vašoj `.env` datoteci:
+   - `PORT`: Port na kojem će aplikacija raditi (zadano: 8080)
+   - `ENVIRONMENT`: Okruženje (development, production)
+   - `LOG_TO_FILE`: Hoće li se zapisivati u datoteke (true, false)
    - `RESEND_API_KEY`: Vaš Resend API ključ za slanje e-pošte
 
-4. **Napomene o Vercel implementaciji**
-   - Aplikacija koristi `/tmp` direktorij za privremenu pohranu datoteka na Vercel
-   - Pozadinski zadaci nisu podržani u serverless okruženjima, pa će automatska ažuriranja podataka biti pokrenuta API pozivima
-   - Konfiguracija se pohranjuje u `/tmp` direktoriju i bit će periodički resetirana od strane Vercel
+#### Digital Ocean Deployment
+Ova aplikacija može se implementirati na Digital Ocean koristeći App Platform ili Droplet.
+
+1. **Preduvjeti**
+   - Digital Ocean račun
+   - Git repozitorij s vašim kodom
+
+2. **Opcije implementacije**
+   - **Opcija 1: Digital Ocean App Platform** (Preporučeno)
+     - Prijavite se na Digital Ocean nadzornu ploču
+     - Idite na App Platform i stvorite novu aplikaciju
+     - Povežite svoj Git repozitorij
+     - Odaberite Dockerfile kao metodu implementacije
+     - Konfigurirajte varijable okruženja
+     - Implementirajte aplikaciju
+
+   - **Opcija 2: Digital Ocean Droplet**
+     - Stvorite novi Droplet
+     - SSH-ajte se u svoj Droplet
+     - Instalirajte Docker i Docker Compose
+     - Klonirajte svoj repozitorij
+     - Konfigurirajte varijable okruženja
+     - Izgradite i pokrenite s Docker Compose
+
+3. **Detaljne upute**
+   Za detaljne upute za implementaciju, pogledajte [Vodič za implementaciju na Digital Ocean](DEPLOY_DIGITAL_OCEAN.md).
 
 ## Usage Guide / Vodič za korištenje
 

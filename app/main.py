@@ -81,19 +81,22 @@ def start_flask_app():
     Start the Flask application
     """
     try:
+        # Get port from environment variable or use default
+        port = int(os.environ.get('PORT', 8080))
+
         # Start Flask app in a separate thread
         flask_thread = threading.Thread(
             target=flask_app.run,
             kwargs={
                 'debug': False,  # Disable debug mode when running in a thread
                 'host': '0.0.0.0',
-                'port': 5000
+                'port': port
             }
         )
         flask_thread.daemon = True
         flask_thread.start()
 
-        logger.info("Flask application started successfully")
+        logger.info(f"Flask application started successfully on port {port}")
         return True
     except Exception as e:
         logger.error(f"Error starting Flask application: {str(e)}", exc_info=True)
